@@ -31,10 +31,10 @@ public class HashTable {
             ht.add(new Bucket(b));
     }
     
-    public void insert(int elem)
+    public String insert(int elem)
     {
         pos = find(elem);
-        if(ht.get(pos).isThere(elem)) return;
+        if(ht.get(pos).isThere(elem)) return null;
         ht.get(pos).insert(elem);
         totalelement++;      
 //        if(ht.get(pos).getCurrentSize()>b)
@@ -48,7 +48,7 @@ public class HashTable {
                 collisions=0;
             }
         } 
-        System.out.println("Inserted: "+elem);
+        return (new Integer(elem)).toString();
     }
     
     private void split()
