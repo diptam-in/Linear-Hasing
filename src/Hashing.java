@@ -17,8 +17,9 @@ import java.io.IOException;
 public class Hashing {
     public static void main(String args[]) throws FileNotFoundException, IOException
     {
-        HashTable ht = new HashTable(2,2);
-        String FILENAME = "/home/diptam/DBS/data.txt";
+        Integer B = Integer.parseInt(args[2]);
+        String FILENAME = args[0];
+        HashTable ht = new HashTable(2,B/4);
         BufferedReader br = new BufferedReader(new FileReader(FILENAME));
         String num;
         Integer elem;
