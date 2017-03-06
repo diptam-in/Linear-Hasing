@@ -55,8 +55,6 @@ public class HashTable {
     {
         Bucket nb = new Bucket(b);
         ht.add(nb);
-        if(collisions%(N/2)==0)
-            N=2*N;
         ht.get((ht.size()-(size)-1)).split(nb,2*size,ht.size()-1);
         
     }
@@ -68,7 +66,8 @@ public class HashTable {
         while(prod<s)
             prod*=2;
         int temp = elem%prod;
-        
+        if(temp<0)
+            temp = prod+temp;
         if(temp >= s)
             return temp-size;
         else
@@ -77,7 +76,7 @@ public class HashTable {
     
     private double getLoad()
     {
-        return (double)(totalelement/ht.size());
+        return (double)((double)totalelement/ht.size());
     }
     
     public void displayTable()
